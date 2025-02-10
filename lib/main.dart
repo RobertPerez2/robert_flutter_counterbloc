@@ -1,3 +1,6 @@
+// CounterBloc Lab
+// Robert Perez 2025
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,6 +47,8 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    InfoCubit myCubit = BlocProvider.of<InfoCubit>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -68,7 +73,7 @@ class MyHomePage extends StatelessWidget {
           }
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.read<InfoCubit>().update(),
+        onPressed: () => myCubit.update(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
